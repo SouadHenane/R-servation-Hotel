@@ -1,0 +1,22 @@
+<h1> liste des hotels </h1>
+<% if(!hotels.length) {%>
+<b>Pas d hotels</b>
+<%} else {%>
+<table border="1">
+<% hotels.forEach(function(hotel){%>
+<tr>
+<td><%= hotel.id %>
+<td><%= hotel.nom %>
+<td><form style="display:inline" action="/mod" method="post">
+<input type="hidden" name="id" value="<%= hotel.id %>">
+Nom: <input type="text" name="nom" value="<%= hotel.nom %>">
+<input type="submit" value="Modifier"></form>
+<td>
+<form style="display:inline" action="/sup" method="post">
+<input type="hidden" name="id" value="<%= hotel.id %>">
+<br>
+<input type="submit" value="Supprimer"></form>
+</tr>
+<%});%>
+</table>
+<%}%>

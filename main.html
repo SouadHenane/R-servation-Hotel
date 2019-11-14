@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+    <meta charset="UTF-8">
+    <title>Hotels.com</title>
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<script type="text/javascript" src="js/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!--<script type="text/javascript" src="js/angular-route.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<style>
+    .row {
+        background-color: whitesmoke;
+    }
+
+    #header{
+        background-color: #721c24;
+        color: white;
+        text-align: center;
+    }
+
+    #footer{
+        background-color: #721c24;
+        color: white;
+        text-align: center;
+    }
+    img{
+        height: 350px;
+        width: 300px;
+    }
+    #footer img{
+        height: 20px;
+        width: 20px;
+    }
+
+    #nav{
+        display: flex;
+        justify-content:space-around;
+    }
+    /*.navbar div:hover{*/
+        /*background-color: #3097D1;*/
+    /*}*/
+
+    .row .col-sm-8{
+        display: flex;
+        justify-content: center;
+    }
+
+    input.ng-valid{
+        border:2px solid #34ce57;
+    }
+
+    .form-horizontal {
+        max-width: 600px;
+        margin: auto;
+        border: 1px solid #eee;
+    }
+
+    .form-horizontal:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .form-heading {
+        width: 300px;
+        /*background: #00B16A;*/
+        background: #721c24;
+        padding: 10px 15px;}
+
+    .title {
+        color: #fff;
+        margin: 0;
+    }
+
+    .form-group {
+        max-width: 100%;
+        margin: auto;}
+    /*margin: 15px;}*/
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+    .btn {
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+
+</style>
+<body ng-app="myApp">
+<script>
+    var app = angular.module("myApp", ["ngRoute"]);
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when("/acceuil", {
+                templateUrl : "template/Accueil.html"
+            })
+            .when("/connexion", {
+                templateUrl : "template/Connexion.html"
+            })
+            .when("/reservation", {
+                templateUrl : "template/Reservation.html"
+            })
+            .when("/faq", {
+                templateUrl : "template/FAQ.html"
+            })
+            .otherwise({
+                redirectTo: "/acceuil"
+            });
+    }).controller('ValidationCtrl', function (){
+
+    });
+</script>
+<div class="container">
+    <div class="row">
+        <div id="header" class="col-sm-12">
+            <img src="img/1157073_16062412150044053329.jpg" class="col-sm-12">
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Hotels.com</a>
+        </div>
+        <ul id="nav" class="nav navbar-nav">
+            <li><a href="#!acceuil">Acceuil</a></li>
+            <li><a href="#!connexion">Connexion</a></li>
+            <li><a href="#!reservation">Reservation</a></li>
+            <li><a href="#!faq">FAQ</a></li>
+        </ul>
+
+    </nav>
+    <div class="row">
+        <div class="col-sm-8" ng-view></div>
+        <div class="col-sm-4"><h2>Descriptoin du site</h2>
+            <P><b>Hotels.com</b> est un site leader en matière d’hébergement. Nous sommes des passionnés de voyage. Chaque jour, nous inspirons des millions de voyageurs par le biais de 90 sites proposés dans 41 langues. Alors quand il s'agit de réserver l'hôtel, la location de vacances, la résidence hôtelière, la chambre d'hôtes ou la cabane dans les arbres de vos rêves, nous avons ce qu’il vous faut. Avec des centaines de milliers d'établissements dans plus de 200 pays et territoires, nous offrons un choix incomparable avec notre Garantie de prix. Notre site est sympa et facile à utiliser. De plus, nous mettons à votre disposition des outils en ligne novateurs et une appli mobile bien notée.
+            </P>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="footer" class="col-sm-12">
+            <h4>Contacter nous</h4>
+            <p class="glyphicon glyphicon-envelope">Hotels@algerie.info</p><br>
+            <img src="img/fb.png" class="rounded-circle">
+            <img src="img/tw.ico" class="rounded-circle">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
